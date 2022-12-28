@@ -22,11 +22,9 @@ object frmCadastroPadrao: TfrmCadastroPadrao
     Width = 766
     Height = 546
     Align = alClient
-    ActiveCard = CardPesquisa
+    ActiveCard = CardCadastro
     Caption = 'CardCadastro'
     TabOrder = 0
-    ExplicitWidth = 756
-    ExplicitHeight = 536
     object CardPesquisa: TCard
       Left = 1
       Top = 1
@@ -35,8 +33,6 @@ object frmCadastroPadrao: TfrmCadastroPadrao
       Caption = 'CardPesquisa'
       CardIndex = 0
       TabOrder = 0
-      ExplicitWidth = 754
-      ExplicitHeight = 534
       object pnlPesquisa: TPanel
         Left = 0
         Top = 0
@@ -45,8 +41,6 @@ object frmCadastroPadrao: TfrmCadastroPadrao
         Align = alTop
         BevelOuter = bvNone
         TabOrder = 0
-        ExplicitLeft = 1
-        ExplicitTop = -5
         object Label1: TLabel
           Left = 16
           Top = 16
@@ -79,7 +73,6 @@ object frmCadastroPadrao: TfrmCadastroPadrao
           ImageMargins.Top = 10
           Images = ImageList1
           TabOrder = 1
-          ExplicitLeft = 672
         end
       end
       object Panel1: TPanel
@@ -89,8 +82,6 @@ object frmCadastroPadrao: TfrmCadastroPadrao
         Height = 80
         Align = alBottom
         TabOrder = 1
-        ExplicitTop = 454
-        ExplicitWidth = 754
         object btnFechar: TButton
           Left = 681
           Top = 1
@@ -104,7 +95,6 @@ object frmCadastroPadrao: TfrmCadastroPadrao
           Images = ImageList1
           TabOrder = 0
           OnClick = btnFecharClick
-          ExplicitLeft = 671
         end
         object btnImprimir: TButton
           Left = 247
@@ -146,8 +136,6 @@ object frmCadastroPadrao: TfrmCadastroPadrao
           Images = ImageList1
           TabOrder = 3
           OnClick = btnAlterarClick
-          ExplicitLeft = 89
-          ExplicitTop = 5
         end
         object btnExcluir: TButton
           Left = 165
@@ -170,8 +158,6 @@ object frmCadastroPadrao: TfrmCadastroPadrao
         Height = 384
         Align = alClient
         TabOrder = 2
-        ExplicitWidth = 754
-        ExplicitHeight = 374
         object DBGrid1: TDBGrid
           Left = 1
           Top = 1
@@ -195,10 +181,7 @@ object frmCadastroPadrao: TfrmCadastroPadrao
       Caption = 'CardCadastro'
       CardIndex = 1
       TabOrder = 1
-      ExplicitLeft = 0
-      ExplicitTop = 80
-      ExplicitWidth = 754
-      ExplicitHeight = 374
+      ExplicitLeft = 2
       object Panel2: TPanel
         Left = 0
         Top = 464
@@ -206,8 +189,6 @@ object frmCadastroPadrao: TfrmCadastroPadrao
         Height = 80
         Align = alBottom
         TabOrder = 0
-        ExplicitTop = 294
-        ExplicitWidth = 754
         object btnSalvar: TButton
           Left = 599
           Top = 1
@@ -220,7 +201,6 @@ object frmCadastroPadrao: TfrmCadastroPadrao
           ImageMargins.Top = 10
           Images = ImageList1
           TabOrder = 0
-          ExplicitLeft = 1
         end
         object btnCancelar: TButton
           Left = 681
@@ -235,7 +215,6 @@ object frmCadastroPadrao: TfrmCadastroPadrao
           Images = ImageList1
           TabOrder = 1
           OnClick = btnCancelarClick
-          ExplicitLeft = 89
         end
       end
     end
