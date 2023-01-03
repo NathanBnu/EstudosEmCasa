@@ -115,9 +115,13 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="src\model\MonolitoFinanceiro.Model.Conexao.pas">
-            <Form>DataModule1</Form>
+            <Form>dmConexao</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="src\view\MonolitoFinanceiro.View.Usuarios.pas">
+            <Form>frmUsuarios</Form>
+            <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>

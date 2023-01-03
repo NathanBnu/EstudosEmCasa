@@ -27,7 +27,7 @@ var
 implementation
 
 uses
-  MonolitoFinanceiro.View.CadastroPadrao, MonolitoFinanceiro.View.Splash;
+  MonolitoFinanceiro.View.Usuarios, MonolitoFinanceiro.View.Splash;
 
 {$R *.dfm}
 
@@ -45,7 +45,7 @@ end;
 
 procedure TfrmPrincipal.mnuCadastroPadraoClick(Sender: TObject);
 begin
-  frmCadastroPadrao.Show;
+  frmUsuarios.Show;
 end;
 
 end.

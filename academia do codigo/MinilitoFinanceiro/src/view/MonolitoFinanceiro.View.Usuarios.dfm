@@ -3,12 +3,18 @@ inherited frmUsuarios: TfrmUsuarios
   Top = 62
   Caption = 'Cadastro Usu'#225'rios'
   Position = poDesigned
-  ExplicitLeft = -83
+  ExplicitLeft = -178
   PixelsPerInch = 96
   TextHeight = 13
   inherited pnlPrincipal: TCardPanel
     ActiveCard = CardPesquisa
     inherited CardPesquisa: TCard
+      inherited pnlPesquisa: TPanel
+        inherited btnPesquisar: TButton
+          OnClick = btnPesquisarClick
+          ExplicitTop = -5
+        end
+      end
       inherited pnlGrid: TPanel
         inherited DBGrid1: TDBGrid
           DataSource = DataSource1
@@ -17,7 +23,7 @@ inherited frmUsuarios: TfrmUsuarios
     end
   end
   object DataSource1: TDataSource
-    DataSet = DataModule1.FDQuery1
+    DataSet = dmConexao.FDQuery1
     Left = 697
     Top = 345
   end

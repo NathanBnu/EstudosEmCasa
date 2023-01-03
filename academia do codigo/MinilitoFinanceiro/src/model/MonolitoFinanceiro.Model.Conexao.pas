@@ -11,9 +11,10 @@ uses
   FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.DApt, FireDAC.Comp.DataSet;
 
 type
-  TDataModule1 = class(TDataModule)
-    SQLConexao: TFDConnection;
+  TdmConexao = class(TDataModule)
+    sqlConexao: TFDConnection;
     FDQuery1: TFDQuery;
+    procedure DataModuleCreate(Sender: TObject);
     const ARQUIVOCONFIGURACAO = 'MonolitoFinanceiro.cfg';
   private
     { Private declarations }
@@ -24,7 +25,7 @@ type
   end;
 
 var
-  DataModule1: TDataModule1;
+  dmConexao: TdmConexao;
 
 implementation
 
@@ -34,7 +35,7 @@ implementation
 
 { TDataModule1 }
 
-procedure TDataModule1.CarregarConfiguracoes;
+procedure TdmConexao.CarregarConfiguracoes;
 var
   ParametroNome: String;
   ParametroValor: String;
@@ -65,14 +66,20 @@ begin
   end;
 end;
 
-procedure TDataModule1.Conectar;
+procedure TdmConexao.Conectar;
 begin
-
+  SqlConexao.connected;
 end;
 
-procedure TDataModule1.Desconectar;
+procedure TdmConexao.DataModuleCreate(Sender: TObject);
 begin
+  CarregarConfiguracoes;
+  Conectar;
+end;
 
+procedure TdmConexao.Desconectar;
+begin
+  SqlConexao.Connected := False;
 end;
 
 end.
