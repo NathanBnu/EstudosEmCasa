@@ -13,7 +13,6 @@ uses
 type
   TdmConexao = class(TDataModule)
     sqlConexao: TFDConnection;
-    FDQuery1: TFDQuery;
     procedure DataModuleCreate(Sender: TObject);
     const ARQUIVOCONFIGURACAO = 'MonolitoFinanceiro.cfg';
   private

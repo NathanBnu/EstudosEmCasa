@@ -15,11 +15,4 @@ object dmConexao: TdmConexao
     Left = 264
     Top = 136
   end
-  object FDQuery1: TFDQuery
-    Connection = sqlConexao
-    SQL.Strings = (
-      'SELECT * FROM usuarios;')
-    Left = 144
-    Top = 128
-  end
 end
