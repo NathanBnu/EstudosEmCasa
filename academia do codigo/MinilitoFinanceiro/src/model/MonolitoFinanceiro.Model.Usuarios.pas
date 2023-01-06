@@ -23,7 +23,7 @@ type
   private
     { Private declarations }
   public
-    { Public declarations }
+    function TemLoginCadastrado(Login: String; ID: String): Boolean;
   end;
 
 var
@@ -34,5 +34,29 @@ implementation
 {%CLASSGROUP 'Vcl.Controls.TControl'}
 
 {$R *.dfm}
+
+{ TdmUsuarios }
+
+function TdmUsuarios.TemLoginCadastrado(Login, ID: String): Boolean;
+var
+  SQLConsulta: TFDQuery;
+begin
+  Result := false;
+  SQLConsulta := TFDQuery.Create(nil);
+  try
+    SQLConsulta.Connection := dmConexao.sqlConexao;
+    SQLConsulta.SQL.Clear;
+    SQLConsulta.SQL.Add('SELECT ID FROM USUARIOS WHERE LOGIN = :LOGIN');
+    SQLConsulta.ParamByName('LOGIN').AsString := Login;
+    SQLConsulta.Open;
+
+    if not SQLConsulta.IsEmpty then
+      Result := SQLConsulta.FieldByName('ID').AsString <> ID;
+
+  finally
+    SQLConsulta.Close;
+    SQLConsulta.Free;
+  end;
+end;
 
 end.

@@ -112,6 +112,13 @@ begin
     abort;
   end;
 
+  if dmUsuarios.TemLoginCadastrado(Trim(edtLogin.Text), dmUsuarios.cdsUsuarios.FieldByName('ID').AsString) then
+  begin
+    edtSenha.setFocus;
+    Application.MessageBox(PWideChar(Format('O login %s já se encontra cadastrado', [edtLogin.Text], 'Atenção', MB_OK + MB_Iconwarning)));
+    abort;
+  end;
+
   lStatus := 'A';
 
   if ToggleStatus.State = tssoff then
