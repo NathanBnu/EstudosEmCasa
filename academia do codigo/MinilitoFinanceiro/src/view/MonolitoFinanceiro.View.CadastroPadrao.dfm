@@ -14,6 +14,7 @@ object frmCadastroPadrao: TfrmCadastroPadrao
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object pnlPrincipal: TCardPanel
@@ -181,7 +182,35 @@ object frmCadastroPadrao: TfrmCadastroPadrao
       Caption = 'CardCadastro'
       CardIndex = 1
       TabOrder = 1
-      ExplicitLeft = 2
+      ExplicitLeft = 0
+      object Label2: TLabel
+        Left = 69
+        Top = 51
+        Width = 27
+        Height = 13
+        Caption = 'Nome'
+      end
+      object Label3: TLabel
+        Left = 69
+        Top = 91
+        Width = 25
+        Height = 13
+        Caption = 'Login'
+      end
+      object Label4: TLabel
+        Left = 69
+        Top = 131
+        Width = 30
+        Height = 13
+        Caption = 'Senha'
+      end
+      object Label5: TLabel
+        Left = 69
+        Top = 166
+        Width = 31
+        Height = 13
+        Caption = 'Status'
+      end
       object Panel2: TPanel
         Left = 0
         Top = 464
@@ -216,6 +245,34 @@ object frmCadastroPadrao: TfrmCadastroPadrao
           TabOrder = 1
           OnClick = btnCancelarClick
         end
+      end
+      object edtNome: TEdit
+        Left = 120
+        Top = 48
+        Width = 121
+        Height = 21
+        TabOrder = 1
+      end
+      object edtLogin: TEdit
+        Left = 120
+        Top = 88
+        Width = 121
+        Height = 21
+        TabOrder = 2
+      end
+      object edtSenha: TEdit
+        Left = 120
+        Top = 128
+        Width = 121
+        Height = 21
+        TabOrder = 3
+      end
+      object ToggleStatus: TToggleSwitch
+        Left = 120
+        Top = 166
+        Width = 72
+        Height = 20
+        TabOrder = 4
       end
     end
   end

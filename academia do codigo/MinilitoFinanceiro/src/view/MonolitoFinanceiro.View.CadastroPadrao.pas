@@ -5,7 +5,8 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.WinXPanels, Data.DB,
-  Vcl.StdCtrls, Vcl.Grids, Vcl.DBGrids, System.ImageList, Vcl.ImgList;
+  Vcl.StdCtrls, Vcl.Grids, Vcl.DBGrids, System.ImageList, Vcl.ImgList,
+  Vcl.WinXCtrls;
 
 type
   TfrmCadastroPadrao = class(TForm)
@@ -28,10 +29,19 @@ type
     Panel2: TPanel;
     btnSalvar: TButton;
     btnCancelar: TButton;
+    edtNome: TEdit;
+    edtLogin: TEdit;
+    edtSenha: TEdit;
+    ToggleStatus: TToggleSwitch;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
     procedure btnIncluirClick(Sender: TObject);
     procedure btnAlterarClick(Sender: TObject);
     procedure btnFecharClick(Sender: TObject);
     procedure btnCancelarClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -63,6 +73,11 @@ end;
 procedure TfrmCadastroPadrao.btnIncluirClick(Sender: TObject);
 begin
   pnlPrincipal.ActiveCard := cardCadastro;
+end;
+
+procedure TfrmCadastroPadrao.FormShow(Sender: TObject);
+begin
+  pnlPrincipal.ActiveCard := CardPesquisa;
 end;
 
 end.
