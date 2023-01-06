@@ -3,8 +3,6 @@ inherited frmUsuarios: TfrmUsuarios
   Top = 62
   Caption = 'Cadastro Usu'#225'rios'
   Position = poDesigned
-  ExplicitLeft = -332
-  ExplicitTop = -129
   PixelsPerInch = 96
   TextHeight = 13
   inherited pnlPrincipal: TCardPanel
@@ -15,9 +13,8 @@ inherited frmUsuarios: TfrmUsuarios
         end
       end
       inherited Panel1: TPanel
-        inherited btnAlterar: TButton
-          ExplicitLeft = 77
-          ExplicitTop = 5
+        inherited btnExcluir: TButton
+          OnClick = btnExcluirClick
         end
       end
       inherited pnlGrid: TPanel
@@ -49,10 +46,16 @@ inherited frmUsuarios: TfrmUsuarios
       end
     end
     inherited CardCadastro: TCard
-      ExplicitLeft = 1
+      ExplicitLeft = -111
+      ExplicitTop = 17
       inherited Panel2: TPanel
         inherited btnSalvar: TButton
+          ParentCustomHint = False
           OnClick = btnSalvarClick
+          ExplicitLeft = 593
+        end
+        inherited btnCancelar: TButton
+          ExplicitLeft = 687
         end
       end
       inherited ToggleStatus: TToggleSwitch

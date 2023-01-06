@@ -23,7 +23,7 @@ object frmCadastroPadrao: TfrmCadastroPadrao
     Width = 766
     Height = 546
     Align = alClient
-    ActiveCard = CardCadastro
+    ActiveCard = CardPesquisa
     Caption = 'CardCadastro'
     TabOrder = 0
     object CardPesquisa: TCard
@@ -109,6 +109,8 @@ object frmCadastroPadrao: TfrmCadastroPadrao
           ImageMargins.Top = 10
           Images = ImageList1
           TabOrder = 1
+          ExplicitLeft = 253
+          ExplicitTop = 5
         end
         object btnIncluir: TButton
           Left = 1
@@ -123,6 +125,7 @@ object frmCadastroPadrao: TfrmCadastroPadrao
           Images = ImageList1
           TabOrder = 2
           OnClick = btnIncluirClick
+          ExplicitTop = 5
         end
         object btnAlterar: TButton
           Left = 83
@@ -137,6 +140,8 @@ object frmCadastroPadrao: TfrmCadastroPadrao
           Images = ImageList1
           TabOrder = 3
           OnClick = btnAlterarClick
+          ExplicitLeft = 77
+          ExplicitTop = 5
         end
         object btnExcluir: TButton
           Left = 165
@@ -150,6 +155,8 @@ object frmCadastroPadrao: TfrmCadastroPadrao
           ImageMargins.Top = 10
           Images = ImageList1
           TabOrder = 4
+          ExplicitLeft = 159
+          ExplicitTop = 5
         end
       end
       object pnlGrid: TPanel

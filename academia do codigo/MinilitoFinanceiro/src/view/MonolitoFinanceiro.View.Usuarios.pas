@@ -7,7 +7,8 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, MonolitoFinanceiro.View.CadastroPadrao,
   Data.DB, System.ImageList, Vcl.ImgList, Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls,
   Vcl.ExtCtrls, Vcl.WinXPanels, MonolitoFinanceiro.Model.Conexao,
-  MonolitoFinanceiro.Model.Usuarios, Vcl.WinXCtrls;
+  MonolitoFinanceiro.Model.Usuarios, Vcl.WinXCtrls,
+  MonolitoFinanceiro.Utilitarios;
 
 type
   TfrmUsuarios = class(TfrmCadastroPadrao)
@@ -15,8 +16,11 @@ type
     procedure btnPesquisarClick(Sender: TObject);
     procedure btnAlterarClick(Sender: TObject);
     procedure btnSalvarClick(Sender: TObject);
+    procedure btnIncluirClick(Sender: TObject);
+    procedure btnCancelarClick(Sender: TObject);
+    procedure btnExcluirClick(Sender: TObject);
   private
-    { Private declarations }
+    procedure LimparCampos;
   public
     { Public declarations }
   end;
@@ -43,19 +47,49 @@ begin
     ToggleStatus.State := tssOff;
 end;
 
+procedure TfrmUsuarios.btnCancelarClick(Sender: TObject);
+begin
+  inherited;
+
+  dmUsuarios.cdsUsuarios.Cancel;
+end;
+
+procedure TfrmUsuarios.btnExcluirClick(Sender: TObject);
+begin
+  inherited;
+  if Application.MessageBox('Deseja realmente excluir o registro?', 'Pegunta', MB_YESNO + MB_ICONQUESTION) <> mryes then
+    exit;
+
+  try
+    dmUsuarios.cdsUsuarios.Delete;
+    dmUsuarios.cdsUsuarios.ApplyUpdates(0);
+
+    ShowMessage('Registro excluído com sucesso!');
+  except on E: Exception do
+    Application.MessageBox(PWideChar(E.Message), 'Erro ao excluir registro', MB_OK +MB_ICONERROR);
+  end;
+end;
+
+procedure TfrmUsuarios.btnIncluirClick(Sender: TObject);
+begin
+  inherited;
+  LimparCampos;
+  dmUsuarios.cdsUsuarios.Insert;
+end;
+
 procedure TfrmUsuarios.btnPesquisarClick(Sender: TObject);
 begin
   inherited;
   dmUsuarios.cdsUsuarios.close;
   dmUsuarios.cdsUsuarios.CommandText := 'Select * from Usuarios';
   dmUsuarios.cdsUsuarios.Open;
-  //dmConexao.FDQuery1.SQL.Add('SELECT * FROM usuarios');
-  //dmConexao.FDQuery1.Open;
+
 end;
 
 procedure TfrmUsuarios.btnSalvarClick(Sender: TObject);
 var
   LStatus: String;
+  Mensagem: String;
 begin
   if Trim(edtNome.text) = '' then
   begin
@@ -83,6 +117,13 @@ begin
   if ToggleStatus.State = tssoff then
     LStatus := 'B';
 
+  if dmUsuarios.cdsUsuarios.state in [dsInsert] then
+  begin
+    Mensagem := 'Registro incluído com sucesso';
+    dmUsuarios.cdsUsuariosid.AsString := TUtilitarios.GetID;
+    dmUsuarios.cdsUsuariosdata_cadastro.AsDateTime := now;
+  end;
+
   dmUsuarios.cdsUsuariosnome.AsString := Trim(edtNome.Text);
   dmUsuarios.cdsUsuarioslogin.AsString := Trim(edtLogin.Text);
   dmUsuarios.cdsUsuariossenha.AsString := Trim(edtSenha.Text);
@@ -96,6 +137,19 @@ begin
   pnlPrincipal.ActiveCard := CardPesquisa;
   inherited;
 
+end;
+
+procedure TfrmUsuarios.LimparCampos;
+var
+  Contador: Integer;
+begin
+  for Contador := 0 to Pred(ComponentCount) do
+  begin
+    if Components[contador] is TCustomEdit then
+      TCustomEdit(Components[Contador]).Clear
+    else if Components[Contador] is TToggleSwitch then
+      TToggleSwitch(Components[Contador]).state := tssOn;
+  end;
 end;
 
 end.
