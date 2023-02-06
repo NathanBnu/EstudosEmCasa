@@ -7,7 +7,8 @@ uses
   MonolitoFinanceiro.View.Splash in 'src\view\MonolitoFinanceiro.View.Splash.pas' {frmSplash},
   MonolitoFinanceiro.Model.Conexao in 'src\model\MonolitoFinanceiro.Model.Conexao.pas' {dmConexao: TDataModule},
   MonolitoFinanceiro.View.Usuarios in 'src\view\MonolitoFinanceiro.View.Usuarios.pas' {frmUsuarios},
-  MonolitoFinanceiro.Model.Usuarios in 'src\model\MonolitoFinanceiro.Model.Usuarios.pas' {dmUsuarios: TDataModule};
+  MonolitoFinanceiro.Model.Usuarios in 'src\model\MonolitoFinanceiro.Model.Usuarios.pas' {dmUsuarios: TDataModule},
+  MonolitoFinanceiro.Utilitarios in 'src\util\MonolitoFinanceiro.Utilitarios.pas';
 
 {$R *.res}
 
